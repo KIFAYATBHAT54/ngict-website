@@ -2747,3 +2747,155 @@ footer hr {
     }
 
 }
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 92%;
+        max-width: 100%;
+    }
+
+    /* Header */
+    .top-bar {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+
+    header {
+        padding: 12px 0;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .brand {
+        width: 100%;
+    }
+
+    .brand h1 {
+        font-size: 22px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+
+    nav a {
+        font-size: 13px;
+        margin-right: 15px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        line-height: 1.05;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Sections */
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    /* Cards */
+    .course-grid,
+    .features-grid,
+    .team-grid,
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .course-card,
+    .feature-card,
+    .team-card {
+        width: 100%;
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .top-bar {
+        font-size: 10px;
+    }
+}

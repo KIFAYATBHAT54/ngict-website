@@ -6,8 +6,6 @@
 /* =========================================
    CONTACT DETAILS
 ========================================= */
-
-const WHATSAPP_NUMBER = "+91 xxxxx xxxxx";
 const EMAIL_ADDRESS = "EXAMPLE@gmail.com";
 
 
@@ -145,18 +143,6 @@ if (enquiryForm) {
 
             "\n💬 Message: " +
             (message || "No message provided");
-
-
-        /* =========================================
-           WHATSAPP
-        ========================================= */
-
-        const whatsappURL =
-
-            "https://wa.me/" +
-            WHATSAPP_NUMBER +
-            "?text=" +
-            encodeURIComponent(enquiryMessage);
 
 
         /* =========================================
@@ -473,12 +459,4 @@ if (footer) {
 
 console.log(
     "NGICT Website Loaded Successfully."
-);
-
-console.log(
-    "WhatsApp: +91 6006698636"
-);
-
-console.log(
-    "Email: kifayatbhat54@gmail.com"
 );
