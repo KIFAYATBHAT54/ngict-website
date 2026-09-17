@@ -7,8 +7,8 @@
    CONTACT DETAILS
 ========================================= */
 
-const WHATSAPP_NUMBER = "916006698636";
-const EMAIL_ADDRESS = "kifayatbhat54@gmail.com";
+const WHATSAPP_NUMBER = "+91 xxxxx xxxxx";
+const EMAIL_ADDRESS = "EXAMPLE@gmail.com";
 
 
 /* =========================================
@@ -196,17 +196,6 @@ if (enquiryForm) {
 
             "&body=" +
             encodeURIComponent(emailBody);
-
-
-        /* =========================================
-           OPEN WHATSAPP
-        ========================================= */
-
-        window.open(
-            whatsappURL,
-            "_blank"
-        );
-
 
         /* =========================================
            OPEN EMAIL
