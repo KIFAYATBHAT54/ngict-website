@@ -1091,7 +1091,97 @@
 
     </div>
 </section>
+<!-- NOTIFICATIONS -->
+<section id="notifications" class="notification-section">
+    <div class="section-container">
 
+        <div class="section-heading">
+            <span>Important Updates</span>
+            <h2>Notifications</h2>
+            <p>Stay updated with the latest examination and institute notices.</p>
+        </div>
+
+        <div class="notification-list">
+
+            <!-- Examination Notification -->
+            <div class="notification-card" onclick="openNotice('examNotice')">
+
+                <div class="notification-icon">!</div>
+
+                <div class="notification-content">
+                    <span class="notification-label">EXAMINATION</span>
+
+                    <h3>Examination Notification</h3>
+
+                    <p>
+                        Examination forms and prescribed examination fees.
+                        Last date: 26 September 2026.
+                    </p>
+                </div>
+
+                <div class="notification-arrow">→</div>
+
+            </div>
+
+
+            <!-- Classroom Test Notification -->
+            <div class="notification-card" onclick="openNotice('testNotice')">
+
+                <div class="notification-icon">!</div>
+
+                <div class="notification-content">
+                    <span class="notification-label">IMPORTANT NOTICE</span>
+
+                    <h3>Classroom Test & Attendance Notice</h3>
+
+                    <p>
+                        Mandatory classroom test for concerned students.
+                        Test date: 12 September 2026.
+                    </p>
+                </div>
+
+                <div class="notification-arrow">→</div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EXAMINATION NOTICE POPUP -->
+<div id="examNotice" class="notice-modal">
+
+    <div class="notice-modal-box">
+
+        <button class="notice-close" onclick="closeNotice('examNotice')">
+            &times;
+        </button>
+
+        <img src="images/examination-notification.jpg"
+             alt="Examination Notification">
+
+    </div>
+
+</div>
+
+
+<!-- CLASSROOM TEST NOTICE POPUP -->
+<div id="testNotice" class="notice-modal">
+
+    <div class="notice-modal-box">
+
+        <button class="notice-close" onclick="closeNotice('testNotice')">
+            &times;
+        </button>
+
+        <img src="images/classroom-test.jpg"
+             alt="Classroom Test Notification">
+
+    </div>
+
+</div>
 
 <!-- =====================================================
      WHY CHOOSE US
