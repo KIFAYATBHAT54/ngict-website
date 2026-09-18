@@ -764,3 +764,13 @@ document.addEventListener("DOMContentLoaded", function () {
         max-height: 90vh;
     }
 }
+
+function openNotice(notice) {
+    if (notice === "examNotice") {
+        window.open("images/examination-notification.jpeg", "_blank");
+    }
+
+    if (notice === "testNotice") {
+        window.open("images/classroom-test.jpeg", "_blank");
+    }
+}
