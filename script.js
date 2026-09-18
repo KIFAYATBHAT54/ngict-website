@@ -572,11 +572,3 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
-
-function openNotice(notice) {
-    if (notice === "examNotice") {
-        window.open("images/examination-notification.jpeg", "_blank");
-    } else if (notice === "testNotice") {
-        window.open("images/classroom-test.jpeg", "_blank");
-    }
-}
