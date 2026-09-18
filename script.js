@@ -1,462 +1,574 @@
-/* =========================================
-   NGICT - FINAL JAVASCRIPT
-========================================= */
+/* =========================================================
+   NGICT WEBSITE
+   Next Generation Institute of Computers & Technology
+   FINAL JAVASCRIPT
+========================================================= */
 
+document.addEventListener("DOMContentLoaded", function () {
 
-/* =========================================
-   CONTACT DETAILS
-========================================= */
-const EMAIL_ADDRESS = "EXAMPLE@gmail.com";
 
+    /* =====================================================
+       01. SMOOTH NAVIGATION
+    ===================================================== */
 
-/* =========================================
-   SMOOTH SCROLL
-========================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-    link.addEventListener("click", function(event) {
-
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =========================================
-   ENQUIRY FORM
-========================================= */
-
-const enquiryForm =
-    document.querySelector("#enquiryForm");
-
-
-if (enquiryForm) {
-
-    enquiryForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-
-        const name =
-            document.querySelector("#name").value.trim();
-
-        const email =
-            document.querySelector("#email").value.trim();
-
-        const phone =
-            document.querySelector("#phone").value.trim();
-
-        const course =
-            document.querySelector("#course").value;
-
-        const message =
-            document.querySelector("#message").value.trim();
-
-
-        /* NAME */
-
-        if (name === "") {
-
-            alert("Please enter your full name.");
-
-            document.querySelector("#name").focus();
-
-            return;
-
-        }
-
-
-        /* EMAIL */
-
-        if (email === "") {
-
-            alert("Please enter your email address.");
-
-            document.querySelector("#email").focus();
-
-            return;
-
-        }
-
-
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-        if (!emailPattern.test(email)) {
-
-            alert("Please enter a valid email address.");
-
-            document.querySelector("#email").focus();
-
-            return;
-
-        }
-
-
-        /* COURSE */
-
-        if (course === "") {
-
-            alert("Please select a course.");
-
-            document.querySelector("#course").focus();
-
-            return;
-
-        }
-
-
-        /* =========================================
-           CREATE MESSAGE
-        ========================================= */
-
-        const enquiryMessage =
-
-            "📚 NEW COURSE ENQUIRY" +
-
-            "\n\n" +
-
-            "👤 Name: " + name +
-
-            "\n📧 Email: " + email +
-
-            "\n📞 Phone: " +
-            (phone || "Not provided") +
-
-            "\n🎓 Course: " + course +
-
-            "\n💬 Message: " +
-            (message || "No message provided");
-
-
-        /* =========================================
-           EMAIL
-        ========================================= */
-
-        const emailSubject =
-            "New Course Enquiry - " + course;
-
-
-        const emailBody =
-
-            "NEW COURSE ENQUIRY" +
-
-            "\n\n" +
-
-            "Name: " + name +
-
-            "\nEmail: " + email +
-
-            "\nPhone: " +
-            (phone || "Not provided") +
-
-            "\nCourse: " + course +
-
-            "\nMessage: " +
-            (message || "No message provided");
-
-
-        const mailtoURL =
-
-            "mailto:" +
-            EMAIL_ADDRESS +
-
-            "?subject=" +
-            encodeURIComponent(emailSubject) +
-
-            "&body=" +
-            encodeURIComponent(emailBody);
-
-        /* =========================================
-           OPEN EMAIL
-        ========================================= */
-
-        setTimeout(function() {
-
-            window.location.href =
-                mailtoURL;
-
-        }, 500);
-
-
-        /* =========================================
-           RESET
-        ========================================= */
-
-        enquiryForm.reset();
-
-    });
-
-}
-
-
-/* =========================================
-   COURSE SEARCH
-========================================= */
-
-const coursesSection =
-    document.querySelector("#courses");
-
-
-if (coursesSection) {
-
-    const searchBox =
-        document.createElement("input");
-
-
-    searchBox.type = "search";
-
-    searchBox.placeholder =
-        "🔍 Search courses...";
-
-    searchBox.id = "courseSearch";
-
-
-    coursesSection.insertBefore(
-        searchBox,
-        coursesSection.firstElementChild
+    const navigationLinks = document.querySelectorAll(
+        'a[href^="#"]'
     );
 
+    navigationLinks.forEach(function (link) {
 
-    searchBox.addEventListener(
-        "input",
-        function() {
+        link.addEventListener("click", function (event) {
 
-            const searchText =
-                this.value.toLowerCase();
+            const targetId =
+                this.getAttribute("href");
 
+            if (!targetId || targetId === "#") {
+                return;
+            }
 
-            const courseCards =
-                coursesSection.querySelectorAll(
-                    "article"
-                );
+            const target =
+                document.querySelector(targetId);
 
+            if (target) {
 
-            courseCards.forEach(card => {
+                event.preventDefault();
 
-                const text =
-                    card.textContent.toLowerCase();
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
 
-
-                if (
-                    text.includes(searchText)
-                ) {
-
-                    card.style.display = "";
-
-                } else {
-
-                    card.style.display = "none";
-
-                }
-
-            });
-
-        }
-    );
-
-}
-
-
-/*
-=========================================
-   IMAGE HOVER EFFECT
-========================================= */
-
-const images =
-    document.querySelectorAll(
-        "#home img, #about img, footer img"
-    );
-
-
-images.forEach(img => {
-
-    img.addEventListener(
-        "mouseenter",
-        function() {
-
-            this.style.transform =
-                "scale(1.04)";
-
-        }
-    );
-
-
-    img.addEventListener(
-        "mouseleave",
-        function() {
-
-            this.style.transform =
-                "scale(1)";
-
-        }
-    );
-
-});
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        "main section article"
-    );
-
-
-revealElements.forEach(element => {
-
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(25px)";
-
-    element.style.transition =
-        "opacity .7s ease, transform .7s ease";
-
-});
-
-
-function revealOnScroll() {
-
-    revealElements.forEach(element => {
-
-        const position =
-            element.getBoundingClientRect().top;
-
-
-        if (
-            position <
-            window.innerHeight - 70
-        ) {
-
-            element.style.opacity = "1";
-
-            element.style.transform =
-                "translateY(0)";
-
-        }
-
-    });
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-revealOnScroll();
-
-
-/* =========================================
-   BACK TO TOP
-========================================= */
-
-const backToTop =
-    document.createElement("button");
-
-
-backToTop.id = "backToTop";
-
-backToTop.innerHTML = "↑";
-
-backToTop.title =
-    "Back to Top";
-
-
-document.body.appendChild(
-    backToTop
-);
-
-
-window.addEventListener(
-    "scroll",
-    function() {
-
-        if (window.scrollY > 400) {
-
-            backToTop.style.display =
-                "block";
-
-        } else {
-
-            backToTop.style.display =
-                "none";
-
-        }
-
-    }
-);
-
-
-backToTop.addEventListener(
-    "click",
-    function() {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
+            }
 
         });
 
+    });
+
+
+    /* =====================================================
+       02. COURSE SEARCH
+    ===================================================== */
+
+    const courseSearch =
+        document.getElementById("courseSearch");
+
+    const clearSearch =
+        document.getElementById("clearSearch");
+
+    const noCoursesFound =
+        document.getElementById("noCoursesFound");
+
+    const courseCards =
+        document.querySelectorAll(
+            "#courses .course-card"
+        );
+
+    const courseCategories =
+        document.querySelectorAll(
+            "#courses .course-category"
+        );
+
+
+    if (courseSearch) {
+
+        courseSearch.addEventListener(
+            "input",
+            function () {
+
+                const searchValue =
+                    this.value
+                        .trim()
+                        .toLowerCase();
+
+                let foundCourses = 0;
+
+
+                /* Search every course */
+
+                courseCards.forEach(
+                    function (card) {
+
+                        const courseName =
+                            card.querySelector("h4");
+
+                        if (!courseName) {
+                            return;
+                        }
+
+                        const courseText =
+                            courseName.textContent
+                                .trim()
+                                .toLowerCase();
+
+
+                        if (
+                            searchValue === "" ||
+                            courseText.includes(searchValue)
+                        ) {
+
+                            card.style.display = "";
+
+                            foundCourses++;
+
+                        } else {
+
+                            card.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+
+                /* Hide empty categories */
+
+                courseCategories.forEach(
+                    function (category) {
+
+                        const cards =
+                            category.querySelectorAll(
+                                ".course-card"
+                            );
+
+                        let visibleCards = 0;
+
+
+                        cards.forEach(
+                            function (card) {
+
+                                if (
+                                    card.style.display !==
+                                    "none"
+                                ) {
+
+                                    visibleCards++;
+
+                                }
+
+                            }
+                        );
+
+
+                        if (
+                            searchValue !== "" &&
+                            visibleCards === 0
+                        ) {
+
+                            category.style.display =
+                                "none";
+
+                        } else {
+
+                            category.style.display =
+                                "";
+
+                        }
+
+                    }
+                );
+
+
+                /* No result message */
+
+                if (
+                    searchValue !== "" &&
+                    foundCourses === 0
+                ) {
+
+                    noCoursesFound.style.display =
+                        "block";
+
+                } else {
+
+                    noCoursesFound.style.display =
+                        "none";
+
+                }
+
+
+                /* Clear button */
+
+                if (searchValue !== "") {
+
+                    clearSearch.style.display =
+                        "flex";
+
+                } else {
+
+                    clearSearch.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /* Clear Search */
+
+        if (clearSearch) {
+
+            clearSearch.addEventListener(
+                "click",
+                function () {
+
+                    courseSearch.value = "";
+
+                    courseSearch.dispatchEvent(
+                        new Event("input")
+                    );
+
+                    courseSearch.focus();
+
+                }
+            );
+
+        }
+
     }
-);
 
 
-/* =========================================
-   CURRENT YEAR
-========================================= */
+    /* =====================================================
+       03. ACTIVE NAVIGATION
+    ===================================================== */
 
-const footer =
-    document.querySelector("footer");
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const navLinks =
+        document.querySelectorAll(
+            ".navigation a:not(.nav-button)"
+        );
 
 
-if (footer) {
+    function updateActiveNavigation() {
 
-    const footerParagraphs =
-        footer.querySelectorAll("p");
+        let currentSection = "";
 
 
-    if (footerParagraphs.length > 0) {
+        sections.forEach(
+            function (section) {
 
-        footerParagraphs[
-            footerParagraphs.length - 1
-        ].textContent =
+                const sectionTop =
+                    section.offsetTop - 160;
 
-            "© " +
-            new Date().getFullYear() +
-            " Next Generation Institute of Computers and Technology. All Rights Reserved.";
+                const sectionHeight =
+                    section.offsetHeight;
+
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY <
+                    sectionTop + sectionHeight
+                ) {
+
+                    currentSection =
+                        section.getAttribute("id");
+
+                }
+
+            }
+        );
+
+
+        navLinks.forEach(
+            function (link) {
+
+                link.classList.remove("active");
+
+                const target =
+                    link.getAttribute("href");
+
+
+                if (
+                    target ===
+                    "#" + currentSection
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            }
+        );
 
     }
 
-}
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation
+    );
+
+    updateActiveNavigation();
 
 
-/* =========================================
-   WEBSITE READY
-========================================= */
+    /* =====================================================
+       04. FACULTY CARD EFFECT
+    ===================================================== */
 
-console.log(
-    "NGICT Website Loaded Successfully."
-);
+    const facultyCards =
+        document.querySelectorAll(
+            ".team-card"
+        );
+
+
+    facultyCards.forEach(
+        function (card) {
+
+            card.addEventListener(
+                "mouseenter",
+                function () {
+
+                    this.style.transform =
+                        "translateY(-7px)";
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                function () {
+
+                    this.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       05. COURSE CARD INTERACTION
+    ===================================================== */
+
+    const courseCardLinks =
+        document.querySelectorAll(
+            ".course-card a"
+        );
+
+
+    courseCardLinks.forEach(
+        function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    const enquiry =
+                        document.getElementById(
+                            "enquiry"
+                        );
+
+                    if (enquiry) {
+
+                        setTimeout(
+                            function () {
+
+                                enquiry.scrollIntoView({
+                                    behavior: "smooth",
+                                    block: "start"
+                                });
+
+                            },
+                            50
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       06. ENQUIRY FORM
+    ===================================================== */
+
+    const enquiryForm =
+        document.getElementById(
+            "enquiryForm"
+        );
+
+
+    if (enquiryForm) {
+
+        enquiryForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim();
+
+
+                const phone =
+                    document.getElementById(
+                        "phone"
+                    ).value.trim();
+
+
+                const course =
+                    document.getElementById(
+                        "course"
+                    ).value;
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    ).value.trim();
+
+
+                /* Required fields */
+
+                if (
+                    !name ||
+                    !email ||
+                    !course
+                ) {
+
+                    alert(
+                        "Please fill in your name, email address and select a course."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Email validation */
+
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(email)
+                ) {
+
+                    alert(
+                        "Please enter a valid email address."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Success */
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    ". Your enquiry has been prepared successfully."
+                );
+
+
+                /*
+                 * Form data is currently handled
+                 * on the client side.
+                 *
+                 * A service such as Formspree can
+                 * be connected later for actual
+                 * email delivery.
+                 */
+
+
+                console.log(
+                    "NGICT Enquiry Submitted"
+                );
+
+
+                console.log(
+                    "Name:",
+                    name
+                );
+
+
+                console.log(
+                    "Email:",
+                    email
+                );
+
+
+                console.log(
+                    "Phone:",
+                    phone
+                );
+
+
+                console.log(
+                    "Course:",
+                    course
+                );
+
+
+                console.log(
+                    "Message:",
+                    message
+                );
+
+
+                enquiryForm.reset();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       07. FORM RESET
+    ===================================================== */
+
+    if (enquiryForm) {
+
+        enquiryForm.addEventListener(
+            "reset",
+            function () {
+
+                setTimeout(
+                    function () {
+
+                        if (clearSearch) {
+                            clearSearch.style.display =
+                                "none";
+                        }
+
+                    },
+                    50
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       08. WEBSITE STATUS
+    ===================================================== */
+
+    console.log(
+        "NGICT Website Loaded Successfully."
+    );
+
+});
