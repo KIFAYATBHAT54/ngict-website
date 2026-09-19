@@ -2887,223 +2887,159 @@ button {
 /* =========================================================
    END
 ========================================================= */
-/* =========================================================
-   PREMIUM FACULTY / TEAM SECTION
-========================================================= */
+/* =================================
+   PROFESSIONAL FACULTY SECTION
+================================= */
 
 .team-section {
-    background: #f6f8fc;
-    padding: 100px 0;
-}
-
-.team-section .section-heading {
-    margin-bottom: 50px;
+    padding: 95px 0;
+    background: #f8fafc;
 }
 
 .team-grid {
+    max-width: 1080px;
+    margin: 48px auto 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 22px;
 }
+
+
+/* FACULTY CARD */
 
 .team-card {
     position: relative;
-
+    min-height: 205px;
+    padding: 30px 30px 28px;
     background: #ffffff;
-
-    border: 1px solid #e3e8f0;
-    border-radius: 16px;
-
-    padding: 32px;
-
+    border: 1px solid #e4e9f0;
+    border-radius: 12px;
+    box-shadow: 0 7px 24px rgba(7, 27, 56, 0.055);
     overflow: hidden;
-
-    box-shadow: 0 8px 25px rgba(7, 27, 56, 0.06);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
 }
-
-
-/* Top accent */
 
 .team-card::before {
     content: "";
-
     position: absolute;
-
-    top: 0;
     left: 0;
-
-    width: 100%;
-    height: 4px;
-
+    top: 0;
+    width: 4px;
+    height: 100%;
     background: #155eef;
 }
 
 .team-card:hover {
-    transform: translateY(-7px);
-
-    border-color: #cbd8ef;
-
-    box-shadow:
-        0 18px 45px rgba(7, 27, 56, 0.11);
+    transform: translateY(-4px);
+    border-color: #d4deed;
+    box-shadow: 0 16px 35px rgba(7, 27, 56, 0.10);
 }
 
 
-/* Faculty initials */
+/* FACULTY NUMBER */
 
 .faculty-mark {
-    width: 76px;
-    height: 76px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #edf3ff;
-
-    border: 5px solid #ffffff;
-
-    box-shadow:
-        0 0 0 1px #d8e2f3,
-        0 8px 20px rgba(21, 94, 239, 0.08);
-
-    color: #071b38;
-
-    font-size: 20px;
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-
-/* Faculty name */
-
-.team-card h3 {
-    text-align: center;
-
-    color: #071b38;
-
-    font-size: 19px;
-
-    margin-bottom: 9px;
-
-    line-height: 1.3;
-}
-
-
-/* Red separator */
-
-.team-card h3::after {
-    content: "";
-
-    display: block;
-
-    width: 38px;
-    height: 3px;
-
-    background: #d92536;
-
-    margin: 12px auto 20px;
-
-    border-radius: 5px;
-}
-
-
-/* Qualification */
-
-.team-card > strong {
-    display: block;
-
-    text-align: center;
-
-    color: #155eef;
-
-    font-size: 11px;
-
-    line-height: 1.6;
-
-    padding-bottom: 16px;
-
-    border-bottom: 1px solid #edf0f5;
-}
-
-
-/* Faculty information */
-
-.team-card > p {
-    position: relative;
-
-    color: #68758a;
-
-    font-size: 11px;
-
-    line-height: 1.6;
-
-    padding: 11px 10px 11px 20px;
-
-    border-bottom: 1px solid #edf0f5;
-}
-
-.team-card > p:last-child {
-    border-bottom: none;
-}
-
-
-/* Small blue indicator */
-
-.team-card > p::before {
-    content: "";
-
     position: absolute;
-
-    width: 6px;
-    height: 6px;
-
-    background: #155eef;
-
-    border-radius: 50%;
-
-    left: 2px;
-    top: 17px;
+    top: 23px;
+    right: 25px;
+    color: #e5eaf1;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
 }
 
 
-/* =========================================================
-   FACULTY MOBILE
-========================================================= */
+/* FACULTY INFORMATION */
+
+.faculty-info {
+    position: relative;
+    z-index: 1;
+    padding-right: 50px;
+}
+
+.faculty-role {
+    display: inline-block;
+    margin-bottom: 11px;
+    color: #155eef;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.faculty-info h3 {
+    margin: 0;
+    color: #071b38;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.faculty-title {
+    margin: 7px 0 0;
+    color: #536176;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.faculty-line {
+    width: 34px;
+    height: 2px;
+    margin: 17px 0 13px;
+    background: #155eef;
+}
+
+.faculty-description {
+    max-width: 510px;
+    margin: 0;
+    color: #748095;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   MOBILE FACULTY
+================================= */
 
 @media (max-width: 700px) {
 
     .team-section {
-        padding: 75px 0;
+        padding: 70px 0;
     }
 
     .team-grid {
+        width: 92%;
         grid-template-columns: 1fr;
-        gap: 17px;
+        gap: 16px;
+        margin-top: 35px;
     }
 
     .team-card {
-        padding: 27px 22px;
+        min-height: auto;
+        padding: 25px 23px;
     }
 
-    .faculty-mark {
-        width: 68px;
-        height: 68px;
+    .faculty-info {
+        padding-right: 40px;
+    }
 
+    .faculty-info h3 {
         font-size: 18px;
     }
 
-    .team-card h3 {
-        font-size: 17px;
+    .faculty-title {
+        font-size: 12px;
+    }
+
+    .faculty-description {
+        font-size: 11px;
+    }
+
+    .faculty-mark {
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
     }
 }
 /* =========================================================
