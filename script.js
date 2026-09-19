@@ -625,17 +625,4 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        document.querySelectorAll(".notice-modal").forEach(function(modal) {
-            modal.classList.remove("show");
-        });
-
-        document.body.style.overflow = "";
-    }
-
-});
-
 
