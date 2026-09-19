@@ -625,3 +625,6 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+function openNotice(imagePath) {
+    window.open(imagePath, "_blank");
+}
