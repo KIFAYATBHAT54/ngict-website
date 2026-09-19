@@ -572,3 +572,56 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+/* =================================
+   NOTIFICATION POPUPS
+================================= */
+
+function openNotice(noticeId) {
+    const notice = document.getElementById(noticeId);
+
+    if (notice) {
+        notice.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeNotice(noticeId) {
+    const notice = document.getElementById(noticeId);
+
+    if (notice) {
+        notice.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+}
+
+
+/* Close when clicking outside the poster */
+
+document.querySelectorAll(".notice-modal").forEach(function(modal) {
+
+    modal.addEventListener("click", function(event) {
+
+        if (event.target === modal) {
+            modal.classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+    });
+
+});
+
+
+/* Close with Escape key */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        document.querySelectorAll(".notice-modal").forEach(function(modal) {
+            modal.classList.remove("show");
+        });
+
+        document.body.style.overflow = "";
+    }
+
+});
