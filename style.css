@@ -3585,7 +3585,7 @@ button {
     border-radius: 14px;
     box-shadow: 0 8px 28px rgba(7, 27, 56, 0.06);
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .notification-card:hover {
@@ -3594,49 +3594,25 @@ button {
     box-shadow: 0 14px 35px rgba(7, 27, 56, 0.11);
 }
 
+
+/* GOLDEN BELL */
+
 .notification-icon {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #edf3ff;
+    background: #fff8df;
+    border: 1px solid #f2df9b;
     border-radius: 50%;
+    font-size: 25px;
+    box-shadow: 0 5px 15px rgba(180, 140, 20, 0.10);
 }
 
-/* CSS Bell Icon */
 
-.bell-icon {
-    position: relative;
-    display: block;
-    width: 17px;
-    height: 18px;
-    background: #155eef;
-    border-radius: 9px 9px 4px 4px;
-}
-
-.bell-icon::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: 4px;
-    width: 9px;
-    height: 5px;
-    background: #155eef;
-    border-radius: 6px 6px 0 0;
-}
-
-.bell-icon::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 2px;
-    width: 13px;
-    height: 3px;
-    background: #155eef;
-    border-radius: 0 0 6px 6px;
-}
+/* CONTENT */
 
 .notification-content {
     flex: 1;
@@ -3665,15 +3641,18 @@ button {
     line-height: 1.6;
 }
 
+
+/* ARROW */
+
 .notification-arrow {
     color: #155eef;
     font-size: 25px;
     font-weight: 600;
-    transition: 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .notification-card:hover .notification-arrow {
-    transform: translateX(4px);
+    transform: translateX(5px);
 }
 
 
@@ -3689,7 +3668,7 @@ button {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: rgba(4, 15, 32, 0.84);
+    background: rgba(4, 15, 32, 0.86);
 }
 
 .notice-modal.show {
@@ -3716,6 +3695,9 @@ button {
     border-radius: 8px;
 }
 
+
+/* CLOSE BUTTON */
+
 .notice-close {
     position: absolute;
     top: 12px;
@@ -3730,7 +3712,7 @@ button {
     font-size: 24px;
     line-height: 1;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .notice-close:hover {
@@ -3762,6 +3744,7 @@ button {
     .notification-icon {
         width: 43px;
         height: 43px;
+        font-size: 21px;
     }
 
     .notification-content h3 {
@@ -3792,4 +3775,3 @@ button {
         height: 34px;
     }
 }
-
